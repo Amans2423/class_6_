@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sports GK Quiz</title>
+
+<style>
+body{
+ font-family:Arial;
+ background:#f0f8ff;
+ padding:20px;
+ text-align:center;
+}
+
+.quiz-box{
+ background:white;
+ padding:20px;
+ border-radius:15px;
+ max-width:750px;
+ margin:auto;
+ box-shadow:0 0 10px gray;
+}
+
+h2{color:#2b6cb0;}
+.section{margin-top:30px;}
+.question{margin:15px 0; text-align:left;}
+
+input,select{
+ padding:6px;
+ width:160px;
+ text-align:center;
+}
+
+img{width:170px; border-radius:10px; margin-top:5px;}
+
+button{
+ padding:10px 20px;
+ font-size:16px;
+ border:none;
+ background:#2b6cb0;
+ color:white;
+ border-radius:8px;
+ cursor:pointer;
+}
+
+.correct{color:green;}
+.wrong{color:red;}
+
+.practice{
+ background:#fff8dc;
+ padding:12px;
+ border-radius:10px;
+ margin-top:10px;
+ text-align:left;
+}
+</style>
+</head>
+
+<body>
+
+<div class="quiz-box">
+
+<h2>🏆 Sports GK Quiz</h2>
+
+<!-- SECTION 1 -->
+<div class="section">
+<h3>Section 1 – Fill in the blanks</h3>
+
+<div class="question">
+a) One who enforces rules in a match  
+<br><input id="q1"><span id="a1"></span>
+</div>
+
+<div class="question">
+b) Playing cards were first invented in  
+<br><input id="q2"><span id="a2"></span>
+</div>
+
+<div class="question">
+c) Battledore is now known as  
+<br><input id="q3"><span id="a3"></span>
+</div>
+
+<div class="question">
+d) Lord's Cricket ground is in  
+<br><input id="q4"><span id="a4"></span>
+</div>
+
+<div class="question">
+e) Unusual sport from Harry Potter books  
+<br><input id="q5"><span id="a5"></span>
+</div>
+</div>
+
+
+<!-- SECTION 2 -->
+<div class="section">
+<h3>Section 2 – Identify the Sport</h3>
+
+<div class="question">
+<img src="bad.jpg"><br>
+<select id="q6">
+<option value="">Select</option>
+<option>Badminton</option>
+<option>Tennis</option>
+<option>Lacrosse</option>
+</select>
+<span id="a6"></span>
+</div>
+
+<div class="question">
+<img src="lac.jpg"><br>
+<select id="q7">
+<option value="">Select</option>
+<option>Badminton</option>
+<option>Tennis</option>
+<option>Lacrosse</option>
+</select>
+<span id="a7"></span>
+</div>
+
+<div class="question">
+<img src="tennis.jpg"><br>
+<select id="q8">
+<option value="">Select</option>
+<option>Badminton</option>
+<option>Tennis</option>
+<option>Lacrosse</option>
+</select>
+<span id="a8"></span>
+</div>
+</div>
+
+
+<!-- SECTION 3 -->
+<div class="section">
+<h3>Section 3 – ✏ Write in Notebook & Practice</h3>
+
+<div class="practice">
+1️⃣ The sum of three numbers is 25.  
+The second number is twice the first number.  
+The third number is 5 more than the second number.  
+Find the three numbers.
+</div>
+
+<div class="practice">
+2️⃣ How should four 8’s be used to get the sum of 504?
+</div>
+
+<div class="practice">
+3️⃣ The alphabetical order is reversed such that Z = 1, Y = 2 and so on.  
+What would 4, 18, 1 and 16, 18, 23 mean?
+</div>
+
+<div class="practice">
+4️⃣ Seating Puzzle  
+<br><img src="row.jpg"><br>
+In a row, five children are sitting together.  
+A is sitting next to B.  
+D is to the left of A.  
+E is sitting to the left of D.  
+C is in a corner and sitting on the left of E.  
+Who are sitting on the two ends of the row?
+</div>
+
+</div>
+
+
+<!-- SECTION 4 -->
+<div class="section">
+<h3>Section 4 – ✏ Write in Notebook & Practice</h3>
+
+<div class="practice">
+Q. Write the Greek symbols for the following numbers:
+
+1️⃣ 9  
+2️⃣ 10  
+3️⃣ 50  
+4️⃣ 100  
+5️⃣ 500  
+6️⃣ 1000
+</div>
+
+</div>
+
+
+<br>
+<button onclick="check()">Check Answers</button>
+<h3 id="score"></h3>
+
+</div>
+
+
+<script>
+function check(){
+
+let score = 0;
+let ans1=["umpire","china","badminton","london","quidditch"];
+let ans2=["badminton","lacrosse","tennis"];
+
+// Section1
+for(let i=1;i<=5;i++){
+ let user=document.getElementById("q"+i).value.toLowerCase().trim();
+ let show=document.getElementById("a"+i);
+
+ if(user==ans1[i-1]){
+  show.innerHTML=" ✔ Correct";
+  show.className="correct";
+  score++;
+ }else{
+  show.innerHTML=" ✖ "+ans1[i-1];
+  show.className="wrong";
+ }
+}
+
+// Section2
+for(let i=6;i<=8;i++){
+ let user=document.getElementById("q"+i).value.toLowerCase();
+ let show=document.getElementById("a"+i);
+
+ if(user==ans2[i-6]){
+  show.innerHTML=" ✔ Correct";
+  show.className="correct";
+  score++;
+ }else{
+  show.innerHTML=" ✖ "+ans2[i-6];
+  show.className="wrong";
+ }
+}
+
+document.getElementById("score").innerHTML=
+"⭐ Your Score = "+score+" / 8";
+}
+</script>
+
+</body>
+</html>
